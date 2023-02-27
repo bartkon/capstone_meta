@@ -1,38 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;600;700&family=Markazi+Text:wght@400;600;700&display=swap');
+
+:root {
+  --color_a: #F4CE14;
+  --color_b: rgba(73, 94, 87, 1);
+  --grey: #ececec;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Markazi Text', serif !important;
+}
+h1 {
+  font-size: 64pt;
+  font-weight: 600;
+}
+h2 {
+  font-size: 40pt;
+  font-weight: 400;
+}
+h3 {
+  font-size: 26pt;
+  font-weight: 600;
+}
+p.lead {
+  font-size: 18pt;
+  color:black;
+}
+p, a {
+  font-family: 'Karla', sans-serif;
+  font-size: 16pt;
+  color: var(--color_b);
+}
+
+
 .App {
   text-align: center;
+  width:100%;
+  overflow-x: hidden;
+  min-width: 300px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  font-family: 'Karla', sans-serif ;
+  font-size: 16pt;
+  font-weight: bold;
+  color: black ;
+  text-decoration: none;
+  background: var(--color_a) ;
+  border:0;
+  border-radius:16px;
+  padding: 1rem 1.5rem;
+}
+button:hover {
+  cursor: pointer;
+  color:white;
+  background: black;
+  transition: all 0.15s ease-out;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.row {
+  display:grid;
+  grid-template-columns: repeat(12, 1fr) ;
+  height:auto;
+}
+
+.main-column{
+    width:100%;
+    padding: 0rem 1rem;
+    box-sizing: border-box;
+  }
+
+
+@media only screen and (min-width: 650px) {
+  .main-column{
+    width:600px;
+    margin-left: calc( 50% - 300px );
+    padding: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (min-width: 1000px) {
+  .main-column{
+    width:900px;
+    margin-left: calc( 50% - 450px );
   }
-  to {
-    transform: rotate(360deg);
+}
+@media only screen and (min-width: 1500px) {
+  .main-column{
+    width:1200px;
+    margin-left: calc( 50% - 600px );
   }
 }

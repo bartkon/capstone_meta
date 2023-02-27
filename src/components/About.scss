@@ -1,0 +1,41 @@
+#about-section {
+	margin-top:5rem;
+	article{
+		grid-column: span 12;
+		padding:2rem 1rem;
+		text-align:left;
+
+		h1, h2 {
+			margin:0;
+		}
+	}
+	figure{
+		grid-column: span 12;
+		padding:1rem 0;
+		min-height: 15rem;
+
+		.ai1, .ai2 {
+			position: relative;
+			max-width:100%;
+			background-size: cover;
+			background-position: center;
+		}
+		.ai1{
+			margin: 0 -7rem -2rem 0;
+			z-index:10;
+			border: 1rem solid white;
+		}
+		.ai2{
+			margin: -2rem 0 0 -1rem;
+			z-index:5;
+		}
+	}
+	@media only screen and (min-width: 1000px) {
+		article{
+			grid-column: span 6;
+		}
+		figure{
+			grid-column: span 6;
+		}
+	}
+}

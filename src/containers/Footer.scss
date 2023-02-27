@@ -1,0 +1,47 @@
+footer {
+	background-color: var(--color_b);
+	margin-top:5rem;
+	.main-column {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 1rem;
+		padding:2rem;
+		padding-bottom: 6rem;
+		figure {
+			grid-column: span 3;
+			background-image: url("../images/logo2.png");
+			background-size: contain;
+			background-position:center;
+			background-repeat: no-repeat;
+			margin:1.5rem;
+			min-height: 6rem;
+		}
+		article {
+			grid-column: span 1;
+			h3 {
+				text-align: left;
+				color:white;
+				font-weight: 400;
+				margin:0.7rem 0;
+			}
+			ul {
+				list-style: none;
+				margin:0;
+				padding:0;
+				li {
+					text-align: left;
+					a {
+						text-decoration: none;
+						color: #ffffff8f;
+					}
+				}
+			}
+		}
+		@media only screen and (min-width: 650px) {
+			
+			grid-template-columns: 2fr 1fr 1fr 1fr;
+			
+			figure {grid-column: span 1;}
+			article{grid-column: span 1;}
+		}
+	}
+}
