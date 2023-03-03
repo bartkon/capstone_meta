@@ -1,0 +1,44 @@
+
+form {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr); 
+	//max-width: 80%;
+	gap: 0rem 1rem;
+
+	label, input, select {
+		font-family: 'Karla', sans-serif;
+  		font-size: 14pt;
+	}
+	label {
+		margin:1.5rem 0 0.5rem .5rem;
+		color:var(--color_b);
+
+	} 
+	.button {
+		grid-column: span 12;
+		margin: 3rem 0 0 0;
+	}
+	input, select {
+		border:none;
+  		background-color: #e8e8e8;
+  		border-radius: 16px;
+  		//color:white;
+  		padding:1rem 1.5rem;
+  	}
+  	input:focus, select:focus {
+  		background-color: var(--color_a);
+  	 	outline: none;
+  	 	//border:2px solid var(--color_b);
+  	 	border-color: var(--color_b);  	
+  	}
+  	
+	label[for = "res-date"]{ grid-area: 1/1/1/9; }
+	#res-date{ grid-area: 2/1/2/9; }
+	label[for = "res-time"]{ grid-area: 1/9/1/13; }
+	#res-time{ grid-area: 2/9/2/13 !important; }
+	label[for = "guests"]{ grid-area: 3/1/3/5; }
+	#guests{ grid-area: 4/1/4/5; }
+	label[for = "occasion"]{ grid-area: 3/5/3/13; }
+	#occasion{ grid-area: 4/5/4/13; }
+
+}

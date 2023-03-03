@@ -5,8 +5,8 @@ function Testimonials() {
       <div className="main-column">
         <h1>Testimonials</h1>
         <div className="testimonials row">
-          { testimonials.map( testim => {return(
-            <article>
+          { testimonials.map( (testim, index) => {return(
+            <article key={index}>
               <div className="row">
                 <img  src={testim.image} />
                 <p className="lead">{testim.name}</p>

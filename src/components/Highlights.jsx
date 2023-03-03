@@ -18,10 +18,10 @@ function Highlights() {
         </div>
 
         <div className="row specials">
-        {specials.map(special => {return(
-          <article>
+        {specials.map((special, index) => {return(
+          <article key={index}>
             <figure style={{backgroundImage: "url("+special.image+")"}}></figure>
-            <div class="content">
+            <div className="content">
               <div className="strap">
                 <h3>{special.title}</h3>
                 <h3 className="price">{special.price}</h3>

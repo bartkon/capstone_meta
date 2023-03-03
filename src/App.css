@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;600;700&family=Markazi+Text:wght@400;600;700&display=swap');
 
 :root {
+  --header: 4rem;
   --color_a: #F4CE14;
   --color_b: rgba(73, 94, 87, 1);
   --grey: #ececec;
 }
+
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Markazi Text', serif !important;
@@ -33,13 +36,20 @@ p, a {
 
 
 .App {
+  padding-top: var(--header);
+  display: grid;
+  grid-template-rows: 1fr auto;
   text-align: center;
   width:100%;
   overflow-x: hidden;
   min-width: 300px;
+  min-height: 100vh;
 }
 
-button {
+.main{ grid-row: span 1 }
+.footer{ grid-row: span 1 }
+button, .button {
+  display: inline-block;
   font-family: 'Karla', sans-serif ;
   font-size: 16pt;
   font-weight: bold;
@@ -49,8 +59,9 @@ button {
   border:0;
   border-radius:16px;
   padding: 1rem 1.5rem;
+
 }
-button:hover {
+button:hover, .button:hover{
   cursor: pointer;
   color:white;
   background: black;
@@ -64,7 +75,7 @@ button:hover {
 }
 
 .main-column{
-    width:100%;
+    width:100vw;
     padding: 0rem 1rem;
     box-sizing: border-box;
   }

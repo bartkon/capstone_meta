@@ -1,21 +1,27 @@
 import "./Header.scss"
+import { useState } from "react";
 
 function Header() {
-
+  const [menu, setMenu] = useState(false);
+  const toggleMenu = () => setMenu(!menu);
+  const handleClick = () => setMenu(false);
+  
   return (
-    <header className="header" >
+    <header>
       <div className="main-column row">
-        <img src="assets/Logo.svg" />
-        <nav>
+      <button onClick={toggleMenu} id="burger-button"><span></span></button>
+        <a href={`/`} className="logo"><img src="assets/Logo.svg" alt="Little Lemon logo"/></a>
+        <nav className={menu ? "open" : "closed"}>
           <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT</a></li>
-            <li><a href="#">MENU</a></li>
-            <li><a href="#">RESERVATIONS</a></li>
-            <li><a href="#">ORDER ONLINE</a></li>
-            <li><a href="#">LOGIN</a></li>
+            <li><a onClick={handleClick} href={`/#`}>HOME</a></li>
+            <li><a onClick={handleClick} href={`/#about-section`}>ABOUT</a></li>
+            <li><a onClick={handleClick} href={`/#highlight-section`}>MENU</a></li>
+            <li><a onClick={handleClick} href={`booking`}>RESERVATIONS</a></li>
+            <li><a onClick={handleClick} href={`/#highlight-section`}>ORDER ONLINE</a></li>
+
           </ul>
         </nav>
+        <button id="basket-button"><span></span></button>
       </div>
     </header>
   );

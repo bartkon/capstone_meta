@@ -1,16 +1,24 @@
 import Header from "./containers/Header";
-import Main from "./containers/Main";
 import Footer from "./containers/Footer";
+import Main from "./containers/Main";
 import './App.css';
+import {  BrowserRouter } from "react-router-dom";
 
-function App() {
+
+function App({children}) {
+  
+
   return (
     <div className="App">
       <Header />
-      <Main />
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
       <Footer />
     </div>
   );
 }
 
 export default App;
+
+

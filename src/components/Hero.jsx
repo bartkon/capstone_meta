@@ -1,5 +1,6 @@
 import "./Hero.scss";
 
+
 function Hero() {
   return (
     <section id="hero-section">
@@ -8,7 +9,7 @@ function Hero() {
           <h1>Little Lemon</h1>
           <h2>Chicago</h2>
           <p className="lead" style={{color:"white"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <button>Reserve a table</button>
+          <a className="button" href={`/booking`}>Reserve a table</a>
         </article>
         <figure>
           <div className="image"></div>
