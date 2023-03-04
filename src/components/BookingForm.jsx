@@ -7,9 +7,16 @@ const BookingForm = ({availableTimes=[], updateTimes=()=>null, onSubmitForm=()=>
    const [time, setTime] = useState(availableTimes[0]);
    const [guests, setGuests] = useState(1);
    const [occasion, setOccasion] = useState("Birthday");
+   const [dateValid, setDateValid] = useState(true);
+   const [submited, setSubmited] = useState(false);
    
    const handleDate = e => {
       e.preventDefault();
+      if(new Date(e.target.value) < new Date())
+         setDateValid(false);
+      else
+         setDateValid(true);
+      
       setDate(e.target.value);
       updateTimes(e.target.value);
    }
@@ -31,6 +38,11 @@ const BookingForm = ({availableTimes=[], updateTimes=()=>null, onSubmitForm=()=>
    }
    const handleSubmit = e => {
       e.preventDefault();
+      setSubmited(true);
+}
+
+   const handleConfirm = e => {
+      e.preventDefault();
       const data = {
             date:date, 
             time:time, 
@@ -42,24 +54,43 @@ const BookingForm = ({availableTimes=[], updateTimes=()=>null, onSubmitForm=()=>
 
 
    return (
-   
-         <form onSubmit={handleSubmit}>
-            <label htmlFor="res-date">Choose date</label>
-               <input  type="date" id="res-date" onChange={handleDate} value={date}/>
+      <>
+         <form onSubmit={handleSubmit} style={{display:submited? "none" : "grid"}}>
+            <label htmlFor="res-date">Choose date <span className="invalid">{!dateValid? "(can't be past)" : ""}</span></label>
+               <input  
+               className={dateValid? null : "invalid"} 
+               type="date" id="res-date" 
+               onChange={handleDate} 
+               min={today()}
+               value={date}/>
             <label htmlFor="res-time">Time</label>
-               <select onChange={handleTime} value={time} id="res-time">
+               <select onChange={handleTime} value={time} id="res-time" required>
                {availableTimes.map(time => <option key={time}>{time}</option>)}
                </select>
             <label htmlFor="guests">Guests</label>
-               <input onChange={handleGuests} type="number" value={guests} min="1" max="10" id="guests" />
+               <input onChange={handleGuests} type="number" value={guests} min="1" max="10" id="guests" required/>
             <label htmlFor="occasion">Occasion</label>
-               <select onChange={handleOccasion} value={occasion} id="occasion">
+               <select onChange={handleOccasion} value={occasion} id="occasion" required>
                   <option>Birthday</option>
                   <option>Anniversary</option>
                </select>
 
-            <input type="submit" className="button" value="Book Now" />
+            <input type="submit" className="button" value="Book Now" disabled={!dateValid} />
          </form>
+
+         <section className="overview" style={{display:!submited? "none" : "grid"}}>
+            <p className="lead">
+               Table for <span>{guests} guests</span> 
+               reserved for <span>{date}</span> 
+               at <span>{time}</span> 
+               on the occasion of <span>{occasion}</span> .
+            </p>
+            <div className="row">
+               <button className="edit-booking" onClick={()=>setSubmited(false)}>⏴Edit</button>
+               <button className="confirm-booking" onClick={handleConfirm}>Confirm Booking</button>
+            </div>
+         </section>
+      </>
   
    )
 }

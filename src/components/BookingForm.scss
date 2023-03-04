@@ -12,7 +12,10 @@ form {
 	label {
 		margin:1.5rem 0 0.5rem .5rem;
 		color:var(--color_b);
-
+		span.invalid{
+			color:pink;
+			font-size:1rem;
+		}
 	} 
 	.button {
 		grid-column: span 12;
@@ -31,7 +34,9 @@ form {
   	 	//border:2px solid var(--color_b);
   	 	border-color: var(--color_b);  	
   	}
-  	
+  	input.invalid, select.invalid {
+  		background-color: pink;
+  	}
 	label[for = "res-date"]{ grid-area: 1/1/1/9; }
 	#res-date{ grid-area: 2/1/2/9; }
 	label[for = "res-time"]{ grid-area: 1/9/1/13; }
@@ -41,4 +46,38 @@ form {
 	label[for = "occasion"]{ grid-area: 3/5/3/13; }
 	#occasion{ grid-area: 4/5/4/13; }
 
+}
+
+
+section.overview{
+	display: block;
+	p {
+		line-height: 3rem;
+		span {
+			background-color:var(--grey);
+			color:black;
+			font-weight: bold;
+			padding:0.3rem 0.8rem;
+			border-radius: 1rem;
+			margin: 0 0.5rem;
+		}
+	}
+	.row {
+		margin-top:2rem;
+		grid-template-columns: auto 1fr;
+		grid-gap: 1.5rem;
+		button{
+			display: inline-block;
+			float:left;
+			grid-column: span 1;
+		}
+		button.edit-booking{
+			background-color: var(--color_b);
+			color:white;
+			float:left;
+			&:hover{
+				background-color: black;
+			}
+		}
+	}
 }

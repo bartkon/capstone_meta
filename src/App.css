@@ -37,6 +37,7 @@ p, a {
 
 .App {
   padding-top: var(--header);
+  box-sizing: border-box;
   display: grid;
   grid-template-rows: 1fr auto;
   text-align: center;
@@ -46,8 +47,11 @@ p, a {
   min-height: 100vh;
 }
 
-.main{ grid-row: span 1 }
-.footer{ grid-row: span 1 }
+main{ 
+  grid-row: span 1;
+  align-self:center;
+}
+footer{ grid-row: span 1 }
 button, .button {
   display: inline-block;
   font-family: 'Karla', sans-serif ;
@@ -65,6 +69,12 @@ button:hover, .button:hover{
   cursor: pointer;
   color:white;
   background: black;
+  transition: all 0.15s ease-out;
+}
+button:disabled, .button:disabled{
+  cursor: default;
+  color:grey;
+  background: var(--grey);
   transition: all 0.15s ease-out;
 }
 

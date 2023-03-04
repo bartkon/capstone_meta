@@ -12,6 +12,7 @@ function Main() {
   const navigate = useNavigate();
   const [bookingData, setBookingData] = useState(false);
 
+
   const submitForm = (data) =>{
     if(submitAPI(JSON.stringify(data))){
       setBookingData(data);
@@ -20,6 +21,8 @@ function Main() {
   }
 
   const [availableTimes, updateAvailableTimes] = useReducer(timesReducer, [], initializeTimes);
+  
+
 
   return (
     <main>
@@ -45,7 +48,7 @@ const timesReducer = (stateHours, date) => avaiableAtDate(date);
 const initializeTimes = times => fetchAPI(new Date());
 
 const avaiableAtDate = (date) =>{
-  const date_o = new Date(date)
+  const date_o = new Date(date);
   const timesArray = fetchAPI(date_o);
   return timesArray;
 }

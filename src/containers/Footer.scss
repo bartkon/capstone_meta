@@ -6,12 +6,11 @@ footer {
 		grid-gap: 1rem;
 		padding:2rem;
 		padding-bottom: 6rem;
-		figure {
+		img {
 			grid-column: span 3;
+			justify-self: center;
 			background-image: url("../images/logo2.png");
-			background-size: contain;
-			background-position:center;
-			background-repeat: no-repeat;
+
 			margin:1.5rem;
 			min-height: 6rem;
 		}
@@ -28,19 +27,23 @@ footer {
 				margin:0;
 				padding:0;
 				li {
+					margin-top: 1rem;
 					text-align: left;
 					a {
+						font-size:1.2rem;
 						text-decoration: none;
 						color: #ffffff8f;
+						&:hover{
+							opacity:0.7;
+						}
 					}
 				}
 			}
 		}
-		@media only screen and (min-width: 650px) {
+		@media only screen and (min-width: 1000px) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
 			
-			grid-template-columns: 2fr 1fr 1fr 1fr;
-			
-			figure {grid-column: span 1;}
+			img {grid-column: span 1;}
 			article{grid-column: span 1;}
 		}
 	}
